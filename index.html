@@ -1,11 +1,149 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>My Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surendra Maharjan</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <h1>Hello, GitHub Pages!</h1>
-  <p>This is SuredraMaharjan.github.io</p>
+  <!-- Top Nav -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="logo">Surendra Maharjan</div>
+
+      <nav class="nav">
+        <a href="#about">About me</a>
+        <a href="#publications">Publications</a>
+        <a href="#research">Research Topics</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="top-actions">
+        <a class="icon-btn" href="#search" title="Search">🔍</a>
+        <button class="icon-btn" id="themeBtn" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="container main">
+    <!-- Left profile card -->
+    <aside class="profile">
+      <img class="avatar" src="assets/profile.jpeg" alt="Surendra Maharjan" />
+
+      <h1 class="name">Surendra Maharjan</h1>
+      <p class="role">PhD Researcher • Hydrology / Climate • ML</p>
+      <a class="affil" href="https://www.chapman.edu/" target="_blank" rel="noopener noreferrer"> Chapman University </a>
+      <div class="buttons">
+        <a class="btn scholar"
+           href="https://scholar.google.com/citations?hl=en&user=DdYOY2kAAAAJ&view_op=list_works&sortby=pubdate"
+           target="_blank" rel="noreferrer">Google Scholar</a>
+
+        <a class="btn" href="https://github.com/Surendra1204" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+
+      <div class="social">
+        <a class="social-btn" href="mailto:maharjan@chapman.edu" title="Email">✉️</a>
+        <a class="social-btn" href="https://scholar.google.com/citations?hl=en&user=DdYOY2kAAAAJ" target="_blank" rel="noreferrer" title="Scholar">🎓</a>
+        <a class="social-btn" href="YOUR_LINKEDIN" target="_blank" rel="noreferrer" title="LinkedIn">in</a>
+      </div>
+    </aside>
+
+    <!-- Right content -->
+    <section class="content">
+      <section id="about" class="block">
+        <h2>About me</h2>
+        <p>
+          I’m a PhD researcher focused on hydroclimate extremes, water resources, and machine learning.
+          My work combines remote sensing, reanalysis/climate datasets, and statistical learning to
+          understand and predict droughts, floods, and compound events.
+        </p>
+        <p>
+          I’m especially interested in building reproducible, scalable workflows in Python/R and translating
+          scientific results into practical tools for risk assessment and decision support.
+        </p>
+      </section>
+
+      <section id="publications" class="block">
+        <h2>Publications</h2>
+        <p class="muted">For the full list, please see my Google Scholar profile.</p>
+
+        <ul class="list">
+        <li>
+        <strong>Unfolding cascading impacts of changing South Asia monsoon on a Hindu Kush Himalayas basin</strong>
+        — Surendra Maharjan, Wenzhao Li, Shahryar Fazli, Arshad Ansari, Suraj Tiwari, Roma Thakuranthie, Rejoice Thomas, Hesham El-Askary
+        — <em>Journal of Hydrology: Regional Studies</em> 57 (2025) 102155
+        <span class="links">
+            <a href="https://www.sciencedirect.com/science/article/pii/S2214581824005044" target="_blank" rel="noopener noreferrer">Article</a>
+            <a href="https://www.sciencedirect.com/science/article/pii/S2214581824005044/pdfft?md5=2dd6574c4772a28fd93481d53f1db565&pid=1-s2.0-S2214581824005044-main.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </span>
+        </li>
+        <li>
+        <strong>Enhancing water scarcity resilience in Egypt through machine learning-driven phenological crop mapping and water use efficiency analysis</strong>
+        — Surendra Maharjan, Wenzhao Li, Shahryar Fazli, Aqil Tariq, Rejoice Thomas, Cyril Rakovski, Hesham El-Askary
+        — <em>International Journal of Applied Earth Observation and Geoinformation</em> 141 (2025) 
+        <span class="links">
+            <a href="https://www.sciencedirect.com/science/article/pii/S1569843225003152" target="_blank" rel="noopener noreferrer">Article</a>
+            <a href="https://www.sciencedirect.com/science/article/pii/S1569843225003152/pdfft?md5=abf6cf74691da0abc5d4db11ed644233&pid=1-s2.0-S1569843225003152-main.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </span>
+        </li>
+        <li>
+        <strong>Physics-informed deep learning reveals climate-driven snowpack decline and threatens ecological water availability in a Californian snow-fed catchment</strong>
+        — Surendra Maharjan, Wenzhao Li, Rejoice Thomas, Shahyar Fazli, Arshad Ansari, Hesham Morgan, Ali Elgendy, Mohamed Allali, Hesham El-Askary
+        — <em>Ecological Informatics</em> 92 (2025) 
+        <span class="links">
+            <a href="https://www.sciencedirect.com/science/article/pii/S1574954125005357" target="_blank" rel="noopener noreferrer">Article</a>
+            <a href="https://www.sciencedirect.com/science/article/pii/S1574954125005357/pdfft?md5=dd61065b784f16b84f399554e1b3dfce&pid=1-s2.0-S1574954125005357-main.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </span>
+        </li>
+        <li>
+        <strong>The future intensification of hydrological extremes and whiplashes in the contiguous United States increase community vulnerability</strong>
+        — Surendra Maharjan, Wenzhao Li, John D. Bolten, Hesham El-Askary
+        — <em>Communications Earth &amp; Environment</em> (2025)
+        <span class="links">
+            <a href="https://www.nature.com/articles/s43247-025-02672-9" target="_blank" rel="noopener noreferrer">Article</a>
+            <a href="https://www.nature.com/articles/s43247-025-02672-9.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </span>
+        </li>
+        </ul>
+      </section>
+
+      <section id="research" class="block">
+        <h2>Research Topics</h2>
+        <ul class="tags">
+          <li>Hydroclimate extremes</li>
+          <li>Drought–flood “whiplash”</li>
+          <li>Remote sensing</li>
+          <li>Machine Learning</li>
+          <li>Deep Learning</li>
+          <li>Uncertainty & Evaluation</li>
+          <li>Bayesian statistics</li>
+          <li>Natural language processing (NLP)</li>
+
+        </ul>
+      </section>
+
+      <section id="contact" class="block">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:maharjan@chapman.edu">maharjan@chapman.edu</a></p>
+      </section>
+
+      <footer class="footer">
+        © <span id="year"></span> Surendra Maharjan • Built with GitHub Pages
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // simple light/dark toggle
+    const btn = document.getElementById("themeBtn");
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+    });
+  </script>
 </body>
 </html>
