@@ -167,28 +167,56 @@
     });
 
     // ---------- metrics (typed-in Scholar/Scopus + counted ones) ----------
+    // Compact cards: icon, big number, what it is, one line of detail; each opens its section
     const m = s.metrics || {}, sc = m.scholar || {}, sp = m.scopus || {};
     const rv = s.reviewing || {};
-    const tiles = [];
-    const tile = (val, lbl, note, href) => tiles.push(`<div class="metric"><b>${href ? `<a href="${esc(href)}" target="_blank" rel="noopener">${fmtN(val)}</a>` : fmtN(val)}</b><span>${esc(lbl)}</span>${note ? `<small>${esc(note)}</small>` : ''}</div>`);
-    if (num(sc.citations) != null) tile(num(sc.citations), 'Citations · Google Scholar', sc.updated ? 'Updated ' + fmtDate(sc.updated) : '', L.scholar);
-    if (num(sc.hIndex) != null) tile(num(sc.hIndex), 'h-index · Google Scholar', num(sc.i10) != null ? `i10-index ${sc.i10}` : '', L.scholar);
-    if (num(sp.citations) != null) tile(num(sp.citations), 'Citations · Scopus', sp.updated ? 'Updated ' + fmtDate(sp.updated) : '', L.scopus);
-    if (num(sp.hIndex) != null) tile(num(sp.hIndex), 'h-index · Scopus', num(sp.documents) != null ? `${sp.documents} documents` : '', L.scopus);
-    tile(pubs.length, 'Publications', `${pubs.filter(p => p.type === 'journal').length} journal articles`);
-    if (rv.totalReviews) tile(rv.totalReviews, 'Peer reviews', `for ${(rv.journals || []).length} journals`);
-    $('metrics').innerHTML = tiles.join(''); $('metrics').hidden = !tiles.length;
+    const MI = {
+      doc: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+      quote: '<path d="M7 7h4v4c0 3-1.5 5-4 6M15 7h4v4c0 3-1.5 5-4 6"/>',
+      star: '<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+      check: '<path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/>',
+      chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+    };
+    const mIcon = k => `<span class="m-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${MI[k]}</svg></span>`;
+    const card = ({ icon, val, label, detail, href, ext, extra = '', id = '' }) => `<a class="metric" ${id ? `id="${id}"` : ''} href="${esc(href || '#')}"${ext ? ' target="_blank" rel="noopener"' : ''}>
+      ${mIcon(icon)}<span class="m-body"><b class="m-val">${val}</b><span class="m-label">${esc(label)}</span>${detail ? `<span class="m-detail">${detail}</span>` : ''}</span>${extra}</a>`;
+    // Papers per year as tiny bars (oldest → newest)
+    const years = [...new Set(pubs.map(p => p.year))].sort();
+    const perYear = years.map(y => pubs.filter(p => p.year === y).length), maxY = Math.max(1, ...perYear);
+    const spark = `<span class="m-spark" aria-label="Papers per year: ${years.map((y, i) => `${y} ${perYear[i]}`).join(', ')}">${years.map((y, i) => `<span title="${y}: ${perYear[i]} paper${perYear[i] === 1 ? '' : 's'}"><i style="height:${Math.round(18 + 82 * perYear[i] / maxY)}%"></i><small>’${String(y).slice(2)}</small></span>`).join('')}</span>`;
+    const nJ = pubs.filter(p => p.type === 'journal').length, nC = pubs.length - nJ;
+    const nFirst = pubs.filter(p => (p.authors || [])[0] && isMe(p.authors[0])).length;
+    const byPub = {}; (rv.journals || []).forEach(j => { byPub[j.publisher] = (byPub[j.publisher] || 0) + j.reviews; });
+    const cards = [
+      card({ icon: 'doc', val: fmtN(pubs.length), label: 'Publications', detail: `${nJ} journal · ${nC} conference`, href: '#publications', extra: spark }),
+      card({ icon: 'quote', val: '…', label: 'Citations', detail: 'Counting…', href: '#publications', id: 'mCites' }),
+      card({ icon: 'star', val: fmtN(nFirst), label: 'First-author papers', detail: `${Math.round(100 * nFirst / Math.max(1, pubs.length))}% of all papers`, href: '#publications' }),
+      rv.totalReviews && card({ icon: 'check', val: fmtN(rv.totalReviews), label: 'Peer reviews', detail: `${(rv.journals || []).length} journals · ${Object.entries(byPub).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${v} ${k.replace(' Nature', '')}`).join(', ')}`, href: '#reviewing' }),
+      num(sc.hIndex) != null && card({ icon: 'chart', val: fmtN(num(sc.hIndex)), label: 'h-index · Google Scholar', detail: [num(sc.citations) != null && `${fmtN(num(sc.citations))} citations`, num(sc.i10) != null && `i10 ${sc.i10}`].filter(Boolean).join(' · '), href: L.scholar, ext: true }),
+      num(sp.hIndex) != null && card({ icon: 'chart', val: fmtN(num(sp.hIndex)), label: 'h-index · Scopus', detail: [num(sp.citations) != null && `${fmtN(num(sp.citations))} citations`, num(sp.documents) != null && `${sp.documents} documents`].filter(Boolean).join(' · '), href: L.scopus, ext: true }),
+    ].filter(Boolean);
+    $('metrics').innerHTML = cards.join(''); $('metrics').hidden = !cards.length;
+    // Fills in the Citations card once the live counts arrive
+    function showCitations() {
+      const el = $('mCites'); if (!el) return;
+      const vals = Object.values(cites);
+      if (!vals.length) { el.querySelector('.m-val').textContent = '–'; el.querySelector('.m-detail').textContent = 'Live count unavailable right now'; return; }
+      const total = vals.reduce((a, b) => a + b, 0), cited = vals.filter(v => v > 0).length;
+      el.querySelector('.m-val').textContent = fmtN(total);
+      el.querySelector('.m-detail').textContent = `${cited} papers cited · updates automatically`;
+      el.title = 'Total citations counted by OpenAlex';
+    }
 
     // ---------- live citation counts from OpenAlex ----------
     const dois = pubs.map(p => p.doi).filter(Boolean);
     if (dois.length) {
       const url = 'https://api.openalex.org/works?per-page=100&select=doi,cited_by_count&filter=doi:' + dois.map(d => encodeURIComponent(d.toLowerCase())).join('|');
       fetch(url).then(r => r.ok ? r.json() : null).then(j => {
-        if (!j) return;
+        if (!j) return showCitations();
         for (const w of j.results || []) cites[String(w.doi || '').replace('https://doi.org/', '').toLowerCase()] = w.cited_by_count;
-        drawPubs();
-      }).catch(() => {});
-    }
+        drawPubs(); showCitations();
+      }).catch(showCitations);
+    } else showCitations();
 
     // ---------- peer review ----------
     const js = rv.journals || [];
