@@ -92,6 +92,25 @@
     // ---------- about ----------
     $('aboutText').innerHTML = (s.about || []).map(p => `<p>${esc(p)}</p>`).join('');
     $('topics').innerHTML = (s.topics || []).map(t => `<li>${esc(t)}</li>`).join('');
+    if (!(s.topics || []).length) document.querySelector('.p-topics').hidden = true;
+
+    // ---------- research highlights: one key finding per paper, with its headline number ----------
+    const HL = (s.highlights || []).filter(h => h.title);
+    if (HL.length) {
+      const pubByDoi = new Map((s.publications || []).map(p => [String(p.doi || '').toLowerCase(), p]));
+      $('hlGrid').innerHTML = HL.map(h => {
+        const p = pubByDoi.get(String(h.doi || '').toLowerCase());
+        const url = h.doi ? 'https://doi.org/' + h.doi : '';
+        return `<article class="hl-card">
+          ${h.region ? `<span class="hl-region">${esc(h.region)}</span>` : ''}
+          ${h.stat ? `<div class="hl-stat"><b>${esc(h.stat)}</b><span>${esc(h.statLabel || '')}</span></div>` : ''}
+          <h4>${esc(h.title)}</h4>
+          <p>${esc(h.text || '')}</p>
+          ${url ? `<a class="hl-src" href="${esc(url)}" target="_blank" rel="noopener"><i>${esc(p ? p.venue : 'Read the paper')}</i>${p ? `, ${p.year}` : ''} ↗</a>` : ''}
+        </article>`;
+      }).join('');
+      $('highlights').hidden = false;
+    }
 
     // ---------- publications ----------
     const pubs = (s.publications || []).filter(p => p.show !== false).sort((a, b) => b.year - a.year || (a.type === 'journal' ? -1 : 1) - (b.type === 'journal' ? -1 : 1));

@@ -881,5 +881,55 @@
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=1509%20E%20Culver%20Ave%2C%20Orange%2C%20CA%2092866%2C%20USA",
     "mapQuery": "1509 E Culver Ave, Orange, CA 92866, USA",
     "city": "Orange, California, USA"
-  }
+  },
+  "highlights": [
+    {
+      "stat": ">300%",
+      "statLabel": "of normal annual flow lost in multi-year droughts",
+      "title": "Drought–flood whiplash will hit the least resilient US counties hardest",
+      "text": "Normalized streamflow from USGS records and downscaled projections shows sharp regional disparities. Counties with the deepest droughts also face the highest annual losses and lowest resilience (FEMA National Risk Index).",
+      "region": "Contiguous United States",
+      "doi": "10.1038/s43247-025-02672-9"
+    },
+    {
+      "stat": "up to 60%",
+      "statLabel": "decline in peak snowpack under high emissions",
+      "title": "Physics-informed deep learning forecasts snowpack loss",
+      "text": "A physics-informed LSTM beat both SWAT and a plain LSTM. Projections show peak discharge down about 33% and snowmelt runoff arriving 10–19 days earlier, squeezing summer water for ecosystems.",
+      "region": "West Walker River, California",
+      "doi": "10.1016/j.ecoinf.2025.103526"
+    },
+    {
+      "stat": "3.5 kPa",
+      "statLabel": "vapor pressure deficit limit for crop water-use efficiency",
+      "title": "Machine learning maps Egypt’s crops and their water use",
+      "text": "Support vector machines mapped rice, wheat and clover across the Nile Valley and Delta. Above a VPD of 3.5 kPa, water-use efficiency stops responding, and CMIP6 projects more such months.",
+      "region": "Nile Valley and Delta, Egypt",
+      "doi": "10.1016/j.jag.2025.104668"
+    },
+    {
+      "stat": "72%",
+      "statLabel": "of Western US stations critically dry in 2021",
+      "title": "Hydrological extremes are escalating in the Western US",
+      "text": "A new water-year index shows more extremes and whiplash since 2015 in every basin; over 54% of stations were extremely wet in 2023. Frontline communities bear disproportionate drought impacts.",
+      "region": "Western United States",
+      "doi": "10.1029/2024EF005447"
+    },
+    {
+      "stat": "469",
+      "statLabel": "streamflow stations analysed, 1981–2023",
+      "title": "Pacific climate patterns drive whiplash events",
+      "text": "Wet–dry whiplash is strongly linked to the Western Pacific and East Pacific/North Pacific oscillations, with ENSO and the Madden–Julian Oscillation adding to Pacific Southwest wet spells.",
+      "region": "Western United States",
+      "doi": "10.1038/s41598-025-06087-6"
+    },
+    {
+      "stat": "2025–2100",
+      "statLabel": "monsoon impacts projected with 5 CMIP6 models",
+      "title": "A longer monsoon brings bigger floods to a Himalayan basin",
+      "text": "SWAT projections show an extended rainy season, higher annual discharge and more extreme flows, while drier pre-monsoon spells raise wildfire and landslide risk.",
+      "region": "Indrawati River Basin, Nepal",
+      "doi": "10.1016/j.ejrh.2024.102155"
+    }
+  ]
 }

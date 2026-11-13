@@ -70,7 +70,7 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---------- layout ---------- */
 .layout { display: grid; grid-template-columns: clamp(280px, 22vw, 340px) minmax(0, 1fr); gap: clamp(32px, 3.5vw, 60px); padding-top: 36px; padding-bottom: 60px; align-items: start; }
-.profile { position: sticky; top: 84px; text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px 22px 22px; box-shadow: var(--shadow); }
+.profile { position: static; top: 84px; text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px 22px 22px; box-shadow: var(--shadow); }
 .avatar { width: 168px; height: 168px; max-width: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--surface); box-shadow: 0 0 0 2px var(--accent-soft), var(--shadow); }
 .name { font: 700 27px/1.2 var(--serif); margin: 16px 0 4px; letter-spacing: -.01em; }
 .headline { margin: 0; color: var(--accent); font-weight: 600; }
@@ -234,3 +234,25 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
   .m-detail { font-size: 12px; }
   .m-spark { display: none; }
 }
+
+/* research interests in the profile card */
+.p-topics { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); text-align: left; }
+.p-topics h3 { margin: 0 0 8px; font: 700 12.5px var(--sans); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); text-align: center; }
+.p-topics .tags { margin: 0; gap: 6px; justify-content: center; }
+.p-topics .tags li { font-size: 13px; padding: 4px 10px; }
+
+/* research highlights under About */
+.highlights { margin-top: 26px; }
+.hl-head { margin: 0 0 14px; font: 700 20px/1.3 var(--serif); display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.hl-head span { font: 400 14.5px var(--sans); color: var(--muted); }
+.hl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.hl-card { display: flex; flex-direction: column; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow); border-top: 3px solid var(--accent-2); }
+.hl-region { align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .02em; color: var(--accent-2); background: color-mix(in srgb, var(--accent-2) 12%, transparent); padding: 2px 9px; border-radius: 999px; }
+.hl-stat { display: grid; }
+.hl-stat b { font: 700 30px/1.1 var(--serif); color: var(--accent); font-variant-numeric: tabular-nums; }
+.hl-stat span { font-size: 13px; color: var(--muted); }
+.hl-card h4 { margin: 2px 0 0; font: 700 16.5px/1.35 var(--sans); color: var(--ink); text-wrap: balance; }
+.hl-card p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink-2); flex: 1; }
+.hl-src { margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--accent); }
+/* The profile card stays in view while scrolling only when the whole card fits on screen */
+@media (min-width: 901px) and (min-height: 1000px) { .profile { position: sticky; } }
