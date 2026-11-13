@@ -67,11 +67,18 @@
       s.email && ['mail', 'University email', `<a href="mailto:${esc(s.email)}">${esc(s.email)}</a>`, s.email],
       C.gmail && ['mail', 'Personal email', `<a href="mailto:${esc(C.gmail)}">${esc(C.gmail)}</a>`, C.gmail],
       C.phone && ['phone', 'Phone', `<a href="tel:${esc(tel(C.phone))}">${esc(C.phone)}</a>`, C.phone],
-      C.location && ['pin', 'Location', C.mapUrl ? `<a href="${esc(C.mapUrl)}" target="_blank" rel="noopener">${esc(C.location)}</a>` : esc(C.location), ''],
     ].filter(Boolean);
     $('contactList').innerHTML = items.map(([k, label, value, copy]) => `<li class="contact-item"><span class="ci-icon">${svg(k)}</span>
       <span class="ci-text"><span class="ci-label">${label}</span><span class="ci-value">${value}</span></span>
-      ${copy ? `<button class="ci-copy" type="button" data-copy="${esc(copy)}" aria-label="Copy ${esc(label.toLowerCase())}">Copy</button>` : ''}</li>`).join('');
+      ${copy ? `<button class="ci-copy" type="button" data-copy="${esc(copy)}" aria-label="Copy ${esc(label.toLowerCase())}">Copy</button>` : ''}</li>`).join('')
+      // Location: a full-width card with a small map of the area (city and ZIP only, never a street address)
+      + (C.location ? `<li class="contact-item contact-map">
+        <div class="cm-info"><span class="ci-icon">${svg('pin')}</span>
+          <span class="ci-text"><span class="ci-label">Location</span><span class="ci-value">${esc(C.location)}</span>
+          ${C.mapUrl ? `<a class="cm-open" href="${esc(C.mapUrl)}" target="_blank" rel="noopener">Open in Google Maps ↗</a>` : ''}</span></div>
+        <iframe class="cm-frame" title="Map of ${esc(C.location)}" loading="lazy" referrerpolicy="no-referrer"
+          src="https://maps.google.com/maps?q=${encodeURIComponent(C.mapQuery || C.location)}&z=12&output=embed"></iframe>
+      </li>` : '');
     $('contactList').addEventListener('click', async e => {
       const b = e.target.closest('[data-copy]'); if (!b) return;
       try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied ✓'; } catch { b.textContent = 'Select it to copy'; }
