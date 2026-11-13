@@ -187,16 +187,23 @@
     const nJ = pubs.filter(p => p.type === 'journal').length, nC = pubs.length - nJ;
     const nFirst = pubs.filter(p => (p.authors || [])[0] && isMe(p.authors[0])).length;
     const byPub = {}; (rv.journals || []).forEach(j => { byPub[j.publisher] = (byPub[j.publisher] || 0) + j.reviews; });
+    // Citations: Google Scholar's numbers when you've added them (with citations per year as bars),
+    // otherwise the live OpenAlex total
+    const hasScholar = num(sc.citations) != null;
+    const sy = Object.entries(sc.perYear || {}).sort((a, b) => a[0] - b[0]).filter(([, n]) => n > 0).slice(-5);
+    const maxC = Math.max(1, ...sy.map(([, n]) => n));
+    const citeSpark = sy.length > 1 ? `<span class="m-spark" aria-label="Citations per year: ${sy.map(([y, n]) => `${y} ${n}`).join(', ')}">${sy.map(([y, n]) => `<span title="${y}: ${n} citation${n === 1 ? '' : 's'}"><i style="height:${Math.round(10 + 90 * n / maxC)}%"></i><small>’${String(y).slice(2)}</small></span>`).join('')}</span>` : '';
     const cards = [
       card({ icon: 'doc', val: fmtN(pubs.length), label: 'Publications', detail: `${nJ} journal · ${nC} conference`, href: '#publications', extra: spark }),
-      card({ icon: 'quote', val: '…', label: 'Citations', detail: 'Counting…', href: '#publications', id: 'mCites' }),
+      hasScholar
+        ? card({ icon: 'quote', val: fmtN(num(sc.citations)), label: 'Citations · Google Scholar', detail: [num(sc.hIndex) != null && `h-index ${sc.hIndex}`, num(sc.i10) != null && `i10-index ${sc.i10}`].filter(Boolean).join(' · '), href: L.scholar || '#publications', ext: !!L.scholar, extra: citeSpark })
+        : card({ icon: 'quote', val: '…', label: 'Citations', detail: 'Counting…', href: '#publications', id: 'mCites' }),
       card({ icon: 'star', val: fmtN(nFirst), label: 'First-author papers', detail: `${Math.round(100 * nFirst / Math.max(1, pubs.length))}% of all papers`, href: '#publications' }),
       rv.totalReviews && card({ icon: 'check', val: fmtN(rv.totalReviews), label: 'Peer reviews', detail: `${(rv.journals || []).length} journals · ${Object.entries(byPub).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${v} ${k.replace(' Nature', '')}`).join(', ')}`, href: '#reviewing' }),
-      num(sc.hIndex) != null && card({ icon: 'chart', val: fmtN(num(sc.hIndex)), label: 'h-index · Google Scholar', detail: [num(sc.citations) != null && `${fmtN(num(sc.citations))} citations`, num(sc.i10) != null && `i10 ${sc.i10}`].filter(Boolean).join(' · '), href: L.scholar, ext: true }),
       num(sp.hIndex) != null && card({ icon: 'chart', val: fmtN(num(sp.hIndex)), label: 'h-index · Scopus', detail: [num(sp.citations) != null && `${fmtN(num(sp.citations))} citations`, num(sp.documents) != null && `${sp.documents} documents`].filter(Boolean).join(' · '), href: L.scopus, ext: true }),
     ].filter(Boolean);
     $('metrics').innerHTML = cards.join(''); $('metrics').hidden = !cards.length;
-    // Fills in the Citations card once the live counts arrive
+    // Fills in the Citations card once the live counts arrive (only when no Scholar numbers are set)
     function showCitations() {
       const el = $('mCites'); if (!el) return;
       const vals = Object.values(cites);
