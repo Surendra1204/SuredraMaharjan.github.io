@@ -1,0 +1,4 @@
+node_modules/
+# local preview helper only
+package.json
+package-lock.json

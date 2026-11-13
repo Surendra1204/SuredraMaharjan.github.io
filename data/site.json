@@ -1,0 +1,653 @@
+{
+  "name": "Surendra Maharjan",
+  "headline": "PhD Researcher",
+  "focus": [
+    "Hydrology & Hydroclimate Extremes",
+    "Machine Learning (Bayesian, NLP)"
+  ],
+  "affiliations": [
+    {
+      "name": "Chapman University",
+      "url": "https://www.chapman.edu/"
+    },
+    {
+      "name": "Tribhuvan University",
+      "url": "https://pcampus.edu.np/"
+    }
+  ],
+  "email": "maharjan@chapman.edu",
+  "links": {
+    "scholar": "https://scholar.google.com/citations?hl=en&user=DdYOY2kAAAAJ",
+    "scopus": "",
+    "orcid": "",
+    "github": "https://github.com/Surendra1204",
+    "linkedin": "https://www.linkedin.com/in/surendra-maharjan-a0271326b"
+  },
+  "about": [
+    "I'm a PhD researcher focused on hydroclimate extremes, water resources, and machine learning. My work combines remote sensing, reanalysis/climate datasets, and statistical learning to understand and predict droughts, floods, and compound events.",
+    "I'm especially interested in building reproducible, scalable workflows in Python/R and translating scientific results into practical tools for risk assessment and decision support."
+  ],
+  "topics": [
+    "Hydroclimate extremes",
+    "Drought–flood “whiplash”",
+    "Remote sensing",
+    "Machine learning",
+    "Deep learning",
+    "Uncertainty & evaluation",
+    "Bayesian statistics",
+    "Natural language processing (NLP)"
+  ],
+  "metrics": {
+    "scholar": {
+      "citations": "",
+      "hIndex": "",
+      "i10": "",
+      "updated": ""
+    },
+    "scopus": {
+      "citations": "",
+      "hIndex": "",
+      "documents": "",
+      "updated": ""
+    }
+  },
+  "education": [
+    {
+      "degree": "PhD",
+      "field": "",
+      "institution": "Chapman University",
+      "place": "Orange, California, USA",
+      "years": "In progress",
+      "note": ""
+    },
+    {
+      "degree": "M.Sc. in Water Resources Engineering",
+      "field": "",
+      "institution": "Tribhuvan University (Pulchowk Campus)",
+      "place": "Nepal",
+      "years": "2018 – 2020",
+      "note": "Thesis: Generation of Long-Term Flow and Assessment of Impact of Future Land Use Change on Flow"
+    },
+    {
+      "degree": "B.Tech. in Civil Engineering",
+      "field": "",
+      "institution": "Jawaharlal Nehru Technological University, Hyderabad",
+      "place": "India",
+      "years": "2012 – 2016",
+      "note": ""
+    }
+  ],
+  "experience": [
+    {
+      "role": "PhD Researcher",
+      "org": "Chapman University",
+      "place": "Orange, California, USA",
+      "years": "Present",
+      "note": "Hydroclimate extremes, remote sensing and machine learning."
+    }
+  ],
+  "publications": [
+    {
+      "show": true,
+      "pdf": "",
+      "type": "journal",
+      "year": 2026,
+      "doi": "10.1016/j.ijdrr.2026.106114",
+      "venue": "International Journal of Disaster Risk Reduction",
+      "volume": "138",
+      "number": "106114",
+      "title": "Quantifying global internal displacement risk at the hazard-vulnerability-conflict nexus",
+      "authors": [
+        "Wenzhao Li",
+        "Surendra Maharjan",
+        "Rejoice Thomas",
+        "Hesham Morgan",
+        "Ali Elgendy",
+        "Susan Mikhail",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "journal",
+      "year": 2026,
+      "doi": "10.1016/j.ijdrr.2026.106045",
+      "venue": "International Journal of Disaster Risk Reduction",
+      "volume": "135",
+      "number": "106045",
+      "title": "The world's largest saddle dam at risk: Multisensor geohazard analysis and downstream impacts",
+      "authors": [
+        "Hesham El-Askary",
+        "Hesham Morgan",
+        "Surendra Maharjan",
+        "Ali Elgendy",
+        "Wenzhao Li",
+        "Rejoice Thomas",
+        "Austin Madson",
+        "Cyril S. Rakovski"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "journal",
+      "year": 2026,
+      "doi": "10.1016/j.ecoinf.2026.103677",
+      "venue": "Ecological Informatics",
+      "volume": "94",
+      "number": "103677",
+      "title": "A probabilistic deep learning framework for retrieving chlorophyll-a from hyperspectral imagery: Integrating channel attention and mixture density networks",
+      "authors": [
+        "Wenzhao Li",
+        "Surendra Maharjan",
+        "Rejoice Thomas",
+        "Junde Chen",
+        "Hesham Morgan",
+        "M. J. Garay",
+        "O. V. Kalashnikova",
+        "Shahryar Fazli",
+        "Charles M. Ichoku",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "https://www.nature.com/articles/s43247-025-02672-9.pdf",
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1038/s43247-025-02672-9",
+      "venue": "Communications Earth & Environment",
+      "volume": "6",
+      "number": "668",
+      "title": "The future intensification of hydrological extremes and whiplashes in the contiguous United States increase community vulnerability",
+      "authors": [
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "John D. Bolten",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "https://www.sciencedirect.com/science/article/pii/S1574954125005357/pdfft?md5=dd61065b784f16b84f399554e1b3dfce&pid=1-s2.0-S1574954125005357-main.pdf",
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1016/j.ecoinf.2025.103526",
+      "venue": "Ecological Informatics",
+      "volume": "92",
+      "number": "103526",
+      "title": "Physics-informed deep learning reveals climate-driven snowpack decline and threatens ecological water availability in a Californian snow-fed catchment",
+      "authors": [
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "Rejoice Thomas",
+        "Shahryar Fazli",
+        "Arshad Ansari",
+        "Hesham Morgan",
+        "Ali Elgendy",
+        "Mohamed Allali",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "https://www.sciencedirect.com/science/article/pii/S1569843225003152/pdfft?md5=abf6cf74691da0abc5d4db11ed644233&pid=1-s2.0-S1569843225003152-main.pdf",
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1016/j.jag.2025.104668",
+      "venue": "International Journal of Applied Earth Observation and Geoinformation",
+      "volume": "141",
+      "number": "104668",
+      "title": "Enhancing water scarcity resilience in Egypt through machine learning-driven phenological crop mapping and water use efficiency analysis",
+      "authors": [
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "Shahryar Fazli",
+        "Aqil Tariq",
+        "Rejoice Thomas",
+        "Cyril Rakovski",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1016/j.jag.2025.104648",
+      "venue": "International Journal of Applied Earth Observation and Geoinformation",
+      "volume": "141",
+      "number": "104648",
+      "title": "Land instability compounds the risk of sea level rise in Alexandria, Egypt",
+      "authors": [
+        "Rejoice Thomas",
+        "Sara Zouriq",
+        "Shahryar Fazli",
+        "Amr Fawzy",
+        "Nikolay Grisel Todorov",
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "Erik J. Linstead",
+        "Daniele Carlo Struppa",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1029/2024EF005447",
+      "venue": "Earth's Future",
+      "volume": "13",
+      "number": "e2024EF005447",
+      "title": "Escalating Hydrological Extremes and Whiplashes in the Western U.S.: Challenges for Water Management and Frontline Communities",
+      "authors": [
+        "Wenzhao Li",
+        "Surendra Maharjan",
+        "Joshua B. Fisher",
+        "Thomas C. Piechota",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1038/s41598-025-06087-6",
+      "venue": "Scientific Reports",
+      "volume": "15",
+      "number": "21262",
+      "title": "Atmospheric teleconnection patterns and hydrological whiplashes in the Western U.S.",
+      "authors": [
+        "Wenzhao Li",
+        "Surendra Maharjan",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1109/JSTARS.2025.3589866",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "volume": "18",
+      "number": "18543–18560",
+      "title": "Hyperspectral Band Selection via Heterogeneous Graph Convolutional Self-Representation Network",
+      "authors": [
+        "Junde Chen",
+        "Wenzhao Li",
+        "Surendra Maharjan",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "https://www.sciencedirect.com/science/article/pii/S2214581824005044/pdfft?md5=2dd6574c4772a28fd93481d53f1db565&pid=1-s2.0-S2214581824005044-main.pdf",
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1016/j.ejrh.2024.102155",
+      "venue": "Journal of Hydrology: Regional Studies",
+      "volume": "57",
+      "number": "102155",
+      "title": "Unfolding cascading impacts of changing South Asia monsoon on a Hindu Kush Himalayas basin",
+      "authors": [
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "Shahryar Fazli",
+        "Arshad Ansari",
+        "Suraj Tiwari",
+        "Roma Thakurathi",
+        "Rejoice Thomas",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "journal",
+      "year": 2024,
+      "doi": "10.3126/jes2.v3i2.72190",
+      "venue": "Journal of Engineering and Sciences",
+      "volume": "3",
+      "number": "43–60",
+      "title": "Integrated Hydrological and Hydraulic Modeling for Dam Breach Analysis: A Case Study of Mahadev Khola, Bhaktapur",
+      "authors": [
+        "Roshan Manandhar",
+        "Santosh Bhattarai",
+        "Roma Thakurati",
+        "Surendra Maharjan",
+        "Sujan Shrestha"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "conference",
+      "year": 2025,
+      "doi": "10.1109/IGARSS55030.2025.11243705",
+      "venue": "IGARSS 2025, IEEE International Geoscience and Remote Sensing Symposium",
+      "number": "3218–3222",
+      "title": "Assessing Meteorological Impacts on Hydrological Switches in the CONUS",
+      "authors": [
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "Sujan Shrestha",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "conference",
+      "year": 2025,
+      "doi": "10.1109/IGARSS55030.2025.11243599",
+      "venue": "IGARSS 2025, IEEE International Geoscience and Remote Sensing Symposium",
+      "number": "2625–2629",
+      "title": "Decoding Teleconnection Impacts on Hydrological Switches in the CONUS Using Wavelet Analysis",
+      "authors": [
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "Shahryar Fazli",
+        "Hesham Morgan",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "conference",
+      "year": 2025,
+      "doi": "10.1109/IGARSS55030.2025.11243293",
+      "venue": "IGARSS 2025, IEEE International Geoscience and Remote Sensing Symposium",
+      "number": "1545–1549",
+      "title": "Assessing Coastal Vulnerability and Climate-Driven Migration Risk in West Africa",
+      "authors": [
+        "Wenzhao Li",
+        "Surendra Maharjan",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "conference",
+      "year": 2025,
+      "doi": "10.1109/IGARSS55030.2025.11242608",
+      "venue": "IGARSS 2025, IEEE International Geoscience and Remote Sensing Symposium",
+      "number": "2495–2499",
+      "title": "Multi-Crop Systems and Crop-Switching Strategies to Enhance Water Use Efficiency and Climate Resilience in Arid Agricultural Regions",
+      "authors": [
+        "Shahryar Fazli",
+        "Wenzhao Li",
+        "Surendra Maharjan",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "conference",
+      "year": 2024,
+      "doi": "10.1109/IGARSS53475.2024.10641162",
+      "venue": "IGARSS 2024, IEEE International Geoscience and Remote Sensing Symposium",
+      "number": "4397–4401",
+      "title": "Enhancing Sustainable Development Goals Through Future Vapor Pressure Deficit Analysis in the Nile River Basin",
+      "authors": [
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "Shahryar Fazli",
+        "Hani Sewilam",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "conference",
+      "year": 2024,
+      "doi": "10.1109/IGARSS53475.2024.10642226",
+      "venue": "IGARSS 2024, IEEE International Geoscience and Remote Sensing Symposium",
+      "number": "9302–9306",
+      "title": "Deciphering Water Quality and Algal Dynamics in Clear Lake Through Hyperspectral Analysis Using EMIT Data",
+      "authors": [
+        "Wenzhao Li",
+        "Shahryar Fazli",
+        "Surendra Maharjan",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": true,
+      "pdf": "",
+      "type": "conference",
+      "year": 2024,
+      "doi": "10.1109/IGARSS53475.2024.10640540",
+      "venue": "IGARSS 2024, IEEE International Geoscience and Remote Sensing Symposium",
+      "number": "5019–5023",
+      "title": "Assessing Rice Phenological Features with Hyperspectral Imaging Insights from Earth Surface Mineral Dust Source Investigation (EMIT)",
+      "authors": [
+        "Shahryar Fazli",
+        "Wenzhao Li",
+        "Surendra Maharjan",
+        "Hesham El-Askary"
+      ]
+    },
+    {
+      "show": false,
+      "pdf": "",
+      "check": true,
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1002/ece3.71643",
+      "venue": "Ecology and Evolution",
+      "volume": "15",
+      "number": "e71643",
+      "title": "Effect of Human Disturbance on Feeding Behavior and Activity Time Budget of Lesser Adjutant Stork Leptoptilos javanicus (Horsfield, 1821) in Nepal",
+      "authors": [
+        "Santosh Bajagain",
+        "Jhamak Bahadur Karki",
+        "Yajna Prasad Timilsina",
+        "Menuka Maharjan",
+        "Aavas Pradhan",
+        "Nabaraj Pudasaini",
+        "Prashant Rokka",
+        "Surendra Maharjan"
+      ]
+    },
+    {
+      "show": false,
+      "pdf": "",
+      "check": true,
+      "type": "journal",
+      "year": 2022,
+      "doi": "10.3126/bdg.v23i1.64776",
+      "venue": "Bulletin of the Department of Geology",
+      "volume": "23",
+      "number": "35–51",
+      "title": "Landslide Susceptibility Assessment Using GIS-Based Weights-of-Evidence Model in the Khimti Khola Watershed, Eastern Nepal",
+      "authors": [
+        "Milan Kumar Rai",
+        "Surendra Maharjan",
+        "Ranjan Kumar Dahal"
+      ]
+    },
+    {
+      "show": false,
+      "pdf": "",
+      "check": true,
+      "type": "conference",
+      "year": 2021,
+      "doi": "10.5194/egusphere-egu21-15104",
+      "venue": "EGU General Assembly 2021 (abstract)",
+      "number": "",
+      "title": "Framework for co-development of an open hydrological data system to enhance climate resilience in climate vulnerable countries: Experience from a digital groundwater monitoring pilot in Nepal",
+      "authors": [
+        "Anton Urfels",
+        "Surendra Man Shakya",
+        "Surendra Maharjan",
+        "Bashu Dev Lohanee",
+        "Vishnu Prasad Pandey",
+        "Manohara Khadka",
+        "Subash Adhikari",
+        "Anil Neupane",
+        "Saral Karki",
+        "Salin Acharya",
+        "Timothy Foster",
+        "Timothy Joseph Krupnik"
+      ]
+    },
+    {
+      "show": false,
+      "pdf": "",
+      "check": true,
+      "type": "journal",
+      "year": 2016,
+      "doi": "10.3126/jngs.v50i1.22863",
+      "venue": "Journal of Nepal Geological Society",
+      "volume": "50",
+      "number": "51–54",
+      "title": "Groundwater flow pattern and water level fluctuation in western parts of Chitwan valley",
+      "authors": [
+        "Sushmita Bhandari",
+        "Kabita Karki",
+        "Surendra Maharjan",
+        "Suresh Das Shrestha"
+      ]
+    }
+  ],
+  "reviewing": {
+    "totalReviews": 52,
+    "journals": [
+      {
+        "journal": "Applied Computing and Geosciences",
+        "publisher": "Elsevier",
+        "reviews": 2
+      },
+      {
+        "journal": "Cell Reports Sustainability",
+        "publisher": "Elsevier",
+        "reviews": 2
+      },
+      {
+        "journal": "Climate Risk Management",
+        "publisher": "Elsevier",
+        "reviews": 1
+      },
+      {
+        "journal": "Climate Services",
+        "publisher": "Elsevier",
+        "reviews": 2
+      },
+      {
+        "journal": "Computers and Geosciences",
+        "publisher": "Elsevier",
+        "reviews": 2
+      },
+      {
+        "journal": "Green Technologies and Sustainability",
+        "publisher": "Elsevier",
+        "reviews": 1
+      },
+      {
+        "journal": "International Journal of Applied Earth Observation and Geoinformation",
+        "publisher": "Elsevier",
+        "reviews": 1
+      },
+      {
+        "journal": "Next Research",
+        "publisher": "Elsevier",
+        "reviews": 2
+      },
+      {
+        "journal": "Urban Climate",
+        "publisher": "Elsevier",
+        "reviews": 2
+      },
+      {
+        "journal": "Applied Spatial Analysis and Policy",
+        "publisher": "Springer Nature",
+        "reviews": 2
+      },
+      {
+        "journal": "BMC Research Notes",
+        "publisher": "Springer Nature",
+        "reviews": 2
+      },
+      {
+        "journal": "Communications Earth & Environment",
+        "publisher": "Springer Nature",
+        "reviews": 1
+      },
+      {
+        "journal": "Discover Applied Sciences",
+        "publisher": "Springer Nature",
+        "reviews": 5
+      },
+      {
+        "journal": "Discover Civil Engineering",
+        "publisher": "Springer Nature",
+        "reviews": 1
+      },
+      {
+        "journal": "Discover Environment",
+        "publisher": "Springer Nature",
+        "reviews": 1
+      },
+      {
+        "journal": "Discover Sustainability",
+        "publisher": "Springer Nature",
+        "reviews": 2
+      },
+      {
+        "journal": "Environmental Management",
+        "publisher": "Springer Nature",
+        "reviews": 3
+      },
+      {
+        "journal": "Humanities and Social Sciences Communications",
+        "publisher": "Springer Nature",
+        "reviews": 1
+      },
+      {
+        "journal": "npj Urban Sustainability",
+        "publisher": "Springer Nature",
+        "reviews": 1
+      },
+      {
+        "journal": "Pure and Applied Geophysics",
+        "publisher": "Springer Nature",
+        "reviews": 2
+      },
+      {
+        "journal": "Scientific Reports",
+        "publisher": "Springer Nature",
+        "reviews": 3
+      },
+      {
+        "journal": "Stochastic Environmental Research and Risk Assessment",
+        "publisher": "Springer Nature",
+        "reviews": 2
+      },
+      {
+        "journal": "Sustainable Water Resources Management",
+        "publisher": "Springer Nature",
+        "reviews": 2
+      },
+      {
+        "journal": "Theoretical and Applied Climatology",
+        "publisher": "Springer Nature",
+        "reviews": 7
+      },
+      {
+        "journal": "Water Conservation Science and Engineering",
+        "publisher": "Springer Nature",
+        "reviews": 2
+      }
+    ],
+    "updated": "2026-11-13"
+  }
+}
