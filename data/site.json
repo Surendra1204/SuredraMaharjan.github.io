@@ -19,7 +19,7 @@
   "links": {
     "scholar": "https://scholar.google.com/citations?hl=en&user=DdYOY2kAAAAJ",
     "scopus": "",
-    "orcid": "",
+    "orcid": "https://orcid.org/0009-0008-2868-7584",
     "github": "https://github.com/Surendra1204",
     "linkedin": "https://www.linkedin.com/in/surendra-maharjan-a0271326b"
   },
@@ -53,37 +53,68 @@
   },
   "education": [
     {
-      "degree": "PhD",
-      "field": "",
+      "degree": "Ph.D. in Computational and Data Science",
       "institution": "Chapman University",
       "place": "Orange, California, USA",
-      "years": "In progress",
-      "note": ""
+      "years": "Aug 2023 – present",
+      "note": "Research on hydroclimate extremes, remote sensing and explainable machine learning for water systems."
     },
     {
       "degree": "M.Sc. in Water Resources Engineering",
-      "field": "",
-      "institution": "Tribhuvan University (Pulchowk Campus)",
-      "place": "Nepal",
-      "years": "2018 – 2020",
-      "note": "Thesis: Generation of Long-Term Flow and Assessment of Impact of Future Land Use Change on Flow"
+      "institution": "Tribhuvan University, Institute of Engineering (Pulchowk Campus)",
+      "place": "Kathmandu, Nepal",
+      "years": "2018 – 2021",
+      "note": "Batch topper. Thesis: Generation of Long-Term Flow and Assessment of Impact of Future Land Use Change on Flow."
     },
     {
       "degree": "B.Tech. in Civil Engineering",
-      "field": "",
-      "institution": "Jawaharlal Nehru Technological University, Hyderabad",
-      "place": "India",
+      "institution": "Jawaharlal Nehru Technological University",
+      "place": "Hyderabad, India",
       "years": "2012 – 2016",
       "note": ""
     }
   ],
   "experience": [
     {
-      "role": "PhD Researcher",
-      "org": "Chapman University",
+      "role": "Graduate Research Assistant",
+      "org": "Chapman University, Earth Systems Science and Data Solutions Lab, Schmid College of Science and Technology",
       "place": "Orange, California, USA",
-      "years": "Present",
-      "note": "Hydroclimate extremes, remote sensing and machine learning."
+      "years": "Sep 2023 – present",
+      "note": "Research on hydroclimatic extremes, hydrological switches and climate variability.",
+      "points": [
+        "Apply machine learning, deep learning and geospatial analysis to large climate and hydrological datasets",
+        "Develop reproducible workflows for data processing, modeling and visualization",
+        "Contribute to peer-reviewed publications and international conference presentations"
+      ]
+    },
+    {
+      "role": "Hydropower Engineer",
+      "org": "GEOCE – Technoquarry BEAM, in association with NEDC",
+      "place": "Nepal",
+      "years": "Jul 2020 – Jul 2023",
+      "note": "Hydrological and hydraulic design of storage and run-of-river hydropower projects, from feasibility to detailed design.",
+      "points": [
+        "Hydrological modeling for reservoir and run-of-river projects to support feasibility studies and design optimization",
+        "Hydraulic design of headworks, waterways, spillways and powerhouse layouts",
+        "Dam-break analysis for downstream flood risk and emergency preparedness",
+        "Reservoir delta and sedimentation modeling for long-term storage capacity",
+        "Site investigations, layout planning and technical reports for project approvals"
+      ],
+      "projects": "Kankai Multipurpose (60 MW), Kokhajor Storage (63 MW), Khimti Those Siwalaya Storage (1,261 MW), Middle Inkhu (27.9 MW), Kawadi-I (23.74 MW)"
+    },
+    {
+      "role": "Design / Civil Engineer",
+      "org": "Technoquarry Consults (P) Limited",
+      "place": "Kathmandu, Nepal",
+      "years": "Jan 2017 – May 2020",
+      "note": "Hydrological analysis, hydraulic design and cost estimation for hydropower projects across Nepal.",
+      "points": [
+        "Hydraulic design of headworks, waterways, penstocks, spillways and powerhouse civil structures",
+        "Construction drawings and civil design documentation for project development and approval",
+        "Cost estimation, quantity take-offs and economic assessment of hydropower projects",
+        "Feasibility studies, design basis memoranda and site visit reports"
+      ],
+      "projects": "Myagdi Khola (57.3 MW), Kunban Khola (20 MW), Barahmajh (35.5 MW), Balephi (40 MW), Upper Balephi (46 MW), Dudh Khola (65 MW), Nyasim Khola (35 MW), Upper Nyasem Khola-A (21 MW) and others"
     }
   ],
   "publications": [
@@ -437,9 +468,8 @@
       ]
     },
     {
-      "show": false,
+      "show": true,
       "pdf": "",
-      "check": true,
       "type": "journal",
       "year": 2025,
       "doi": "10.1002/ece3.71643",
@@ -517,6 +547,192 @@
         "Surendra Maharjan",
         "Suresh Das Shrestha"
       ]
+    },
+    {
+      "show": true,
+      "type": "journal",
+      "year": 2026,
+      "doi": "10.1016/j.agrformet.2025.110890",
+      "venue": "Agricultural and Forest Meteorology",
+      "volume": "376",
+      "number": "110890",
+      "title": "Quantifying single, compound and cascading climate extremes: Implications for agricultural resilience in California",
+      "authors": [
+        "Shahryar Fazli",
+        "Wenzhao Li",
+        "Rejoice Thomas",
+        "Surendra Maharjan",
+        "Mohammad Sina Jahangir",
+        "Andre Daccache",
+        "Hesham Morgan",
+        "Mohamed Allali",
+        "Hesham El-Askary"
+      ],
+      "pdf": ""
+    },
+    {
+      "show": true,
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1016/j.agwat.2025.109700",
+      "venue": "Agricultural Water Management",
+      "volume": "318",
+      "number": "109700",
+      "title": "Adaptive crop switching for irrigated agriculture in response to climate change in the Western U.S.",
+      "authors": [
+        "Shahryar Fazli",
+        "Wenzhao Li",
+        "Surendra Maharjan",
+        "Rejoice Thomas",
+        "Aqil Tariq",
+        "Hesham El-Askary"
+      ],
+      "pdf": ""
+    },
+    {
+      "show": true,
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1007/s41748-025-00794-w",
+      "venue": "Earth Systems and Environment",
+      "volume": "10",
+      "number": "3901–3923",
+      "title": "Unraveling Crop Nitrogen-Water Dynamics with Hyperspectral-Thermal Sensing in Northern Central Valley, California",
+      "authors": [
+        "Shahryar Fazli",
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "Joshua B. Fisher",
+        "Rejoice Thomas",
+        "Fernando Romero Galvan",
+        "Gabriela Shirkey",
+        "Hesham El-Askary"
+      ],
+      "pdf": ""
+    },
+    {
+      "show": true,
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1007/s41748-025-00628-9",
+      "venue": "Earth Systems and Environment",
+      "volume": "10",
+      "number": "699–723",
+      "title": "Innovative Machine Learning, Isotopic, and Hydrogeochemical Techniques for Groundwater Analysis in Arid Landscapes in Egypt’s Eastern Desert",
+      "authors": [
+        "Saad Ahmed Mohallel",
+        "Hesham Morgan",
+        "Ali Elgendy",
+        "Surendra Maharjan",
+        "Shahryar Fazli",
+        "Wenzhao Li",
+        "Rejoice Thomas",
+        "Hesham El-Askary"
+      ],
+      "pdf": ""
+    },
+    {
+      "show": true,
+      "type": "journal",
+      "year": 2025,
+      "doi": "10.1016/j.ecoinf.2025.103123",
+      "venue": "Ecological Informatics",
+      "volume": "87",
+      "number": "103123",
+      "title": "Innovative soil classification approach for achieving global biodiversity framework utilizing integrated data fusion of EMIT and multispectral satellite observations: Case study of Imam Turki bin Abdullah Royal Reserve, Kingdom of Saudi Arabia",
+      "authors": [
+        "Hesham Morgan",
+        "Ali Elgendy",
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "Tamer Ismail",
+        "Yehya Kh. Shehadeh",
+        "Ahmed ElGharib",
+        "Ahmed Abdullah Al-Dughairi",
+        "Ali El Mubarak",
+        "Khaled Allam Harhash",
+        "Hesham El-Askary"
+      ],
+      "pdf": ""
+    },
+    {
+      "show": true,
+      "type": "journal",
+      "year": 2024,
+      "doi": "10.1016/j.cageo.2024.105738",
+      "venue": "Computers & Geosciences",
+      "volume": "193",
+      "number": "105738",
+      "title": "Enhanced lithological mapping in arid crystalline regions using explainable AI and multi-spectral remote sensing data",
+      "authors": [
+        "Hesham Morgan",
+        "Ali Elgendy",
+        "Amir Said",
+        "Mostafa Hashem",
+        "Wenzhao Li",
+        "Surendra Maharjan",
+        "Hesham El-Askary"
+      ],
+      "pdf": ""
+    },
+    {
+      "show": true,
+      "type": "journal",
+      "year": 2024,
+      "doi": "10.1016/j.heliyon.2024.e38249",
+      "venue": "Heliyon",
+      "volume": "10",
+      "number": "e38249",
+      "title": "A generalized machine learning model for long-term coral reef monitoring in the Red Sea",
+      "authors": [
+        "Justin J. Gapper",
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "Erik Linstead",
+        "Surya P. Tiwari",
+        "Mohamed A. Qurban",
+        "Hesham El-Askary"
+      ],
+      "pdf": ""
+    },
+    {
+      "show": true,
+      "type": "conference",
+      "year": 2025,
+      "doi": "10.1109/IGARSS55030.2025.11242317",
+      "venue": "IGARSS 2025, IEEE International Geoscience and Remote Sensing Symposium",
+      "volume": "",
+      "number": "4534–4538",
+      "title": "Insights from Swot Data on Transboundary Upstream-Downstream Impacts in The Nile Basin",
+      "authors": [
+        "Hesham Morgan",
+        "Wenzhao Li",
+        "Ali Elgendy",
+        "Surendra Maharjan",
+        "Rejoice Thomas",
+        "Hesham El-Askary"
+      ],
+      "pdf": ""
+    },
+    {
+      "show": true,
+      "type": "conference",
+      "year": 2025,
+      "doi": "10.1109/IGARSS55030.2025.11243375",
+      "venue": "IGARSS 2025, IEEE International Geoscience and Remote Sensing Symposium",
+      "volume": "",
+      "number": "3116–3121",
+      "title": "Wildfires Classification in Canadian Boreal Forest: A Comparative Study of Logistic Regression and XGBoost Models",
+      "authors": [
+        "Brandon Tran",
+        "Elijah James Duran",
+        "Mike Luu",
+        "Hesham Morgan",
+        "Surendra Maharjan",
+        "Wenzhao Li",
+        "Hesham El-Askary"
+      ],
+      "pdf": ""
     }
   ],
   "reviewing": {

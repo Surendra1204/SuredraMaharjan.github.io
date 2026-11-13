@@ -184,7 +184,9 @@
     // ---------- education & experience ----------
     const tl = (items, title, org) => items.map(e => `<li>
       <div class="tl-head"><div class="tl-title">${esc(title(e))}</div><div class="tl-when">${esc(e.years || '')}</div></div>
-      <div class="tl-org">${esc(org(e))}</div>${e.note ? `<div class="tl-note">${esc(e.note)}</div>` : ''}</li>`).join('');
+      <div class="tl-org">${esc(org(e))}</div>${e.note ? `<div class="tl-note">${esc(e.note)}</div>` : ''}
+      ${(e.points || []).length ? `<ul class="tl-points">${e.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+      ${e.projects ? `<div class="tl-projects"><b>Key projects:</b> ${esc(e.projects)}</div>` : ''}</li>`).join('');
     const edu = s.education || [], exp = s.experience || [];
     $('eduList').innerHTML = tl(edu, e => [e.degree, e.field].filter(Boolean).join(', '), e => [e.institution, e.place].filter(Boolean).join(' · '));
     $('expList').innerHTML = tl(exp, e => e.role, e => [e.org, e.place].filter(Boolean).join(' · '));
