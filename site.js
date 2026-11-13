@@ -85,7 +85,9 @@
       setTimeout(() => { b.textContent = 'Copy'; }, 1600);
     });
     // Location also under the affiliations in the profile card
-    if (C.location) $('pAffils').insertAdjacentHTML('afterend', `<p class="p-loc">${svg('pin')}${esc(C.location)}</p>`);
+    // The profile card shows only the city; the full address is in Contact
+    const cityLine = C.city || C.location;
+    if (cityLine) $('pAffils').insertAdjacentHTML('afterend', `<p class="p-loc">${svg('pin')}${esc(cityLine)}</p>`);
 
     // ---------- about ----------
     $('aboutText').innerHTML = (s.about || []).map(p => `<p>${esc(p)}</p>`).join('');
