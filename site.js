@@ -54,7 +54,31 @@
     ].filter(Boolean);
     $('pLinks').innerHTML = links.map(([k, t, u, primary]) => `<a class="lbtn${primary ? ' primary' : ''}" href="${esc(u)}"${u.startsWith('mailto:') ? '' : ' target="_blank" rel="noopener"'}>${icon(k)}${t}</a>`).join('');
     if (L.scholar) $('scholarLink').href = L.scholar; else $('pubNote').hidden = true;
-    $('mailLink').href = 'mailto:' + s.email; $('mailLink').textContent = s.email;
+    // Contact cards: university email, Gmail, phone, location (each shown only when filled in)
+    const C = s.contact || {};
+    const CI = {
+      mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+      phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
+      pin: '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+    };
+    const svg = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${CI[k]}</svg>`;
+    const tel = p => String(p).replace(/[^\d+]/g, '');
+    const items = [
+      s.email && ['mail', 'University email', `<a href="mailto:${esc(s.email)}">${esc(s.email)}</a>`, s.email],
+      C.gmail && ['mail', 'Personal email', `<a href="mailto:${esc(C.gmail)}">${esc(C.gmail)}</a>`, C.gmail],
+      C.phone && ['phone', 'Phone', `<a href="tel:${esc(tel(C.phone))}">${esc(C.phone)}</a>`, C.phone],
+      C.location && ['pin', 'Location', C.mapUrl ? `<a href="${esc(C.mapUrl)}" target="_blank" rel="noopener">${esc(C.location)}</a>` : esc(C.location), ''],
+    ].filter(Boolean);
+    $('contactList').innerHTML = items.map(([k, label, value, copy]) => `<li class="contact-item"><span class="ci-icon">${svg(k)}</span>
+      <span class="ci-text"><span class="ci-label">${label}</span><span class="ci-value">${value}</span></span>
+      ${copy ? `<button class="ci-copy" type="button" data-copy="${esc(copy)}" aria-label="Copy ${esc(label.toLowerCase())}">Copy</button>` : ''}</li>`).join('');
+    $('contactList').addEventListener('click', async e => {
+      const b = e.target.closest('[data-copy]'); if (!b) return;
+      try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied ✓'; } catch { b.textContent = 'Select it to copy'; }
+      setTimeout(() => { b.textContent = 'Copy'; }, 1600);
+    });
+    // Location also under the affiliations in the profile card
+    if (C.location) $('pAffils').insertAdjacentHTML('afterend', `<p class="p-loc">${svg('pin')}${esc(C.location)}</p>`);
 
     // ---------- about ----------
     $('aboutText').innerHTML = (s.about || []).map(p => `<p>${esc(p)}</p>`).join('');

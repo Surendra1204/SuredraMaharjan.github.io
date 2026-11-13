@@ -192,3 +192,18 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
   .layout { display: block; }
   .profile { position: static; box-shadow: none; }
 }
+
+/* contact */
+.contact-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.contact-item { display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; min-width: 0; }
+.ci-icon { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); }
+.ci-icon svg { width: 20px; height: 20px; }
+.ci-text { display: grid; min-width: 0; flex: 1; }
+.ci-label { font-size: 13px; color: var(--muted); }
+.ci-value { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+.ci-value a { color: inherit; }
+.ci-value a:hover { color: var(--accent); }
+.ci-copy { flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); border-radius: 8px; padding: 4px 10px; font: 600 13px var(--sans); cursor: pointer; }
+.ci-copy:hover { border-color: var(--accent); color: var(--accent); }
+.p-loc { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 10px 0 0; font-size: 14.5px; color: var(--muted); }
+.p-loc svg { width: 15px; height: 15px; }
