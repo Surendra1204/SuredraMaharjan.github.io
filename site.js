@@ -116,6 +116,44 @@
         </article>`;
       }).join('');
       $('highlights').hidden = false;
+
+      // Show a few highlights at a time (3 on a wide screen, 2 on a tablet, 1 on a phone); the set fades
+      // out and the next fades in every few seconds, round and round. Pauses while the mouse or keyboard is
+      // on a card or the tab is hidden; the dots switch sets by hand. With "reduce motion" it never moves on its own.
+      const grid = $('hlGrid'), dots = $('hlDots'), cardsEl = [...grid.children];
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let per = 3, page = 0, timer = null, paused = false;
+      const pages = () => Math.ceil(cardsEl.length / per);
+      function showPage(n, animate) {
+        page = (n + pages()) % pages();
+        cardsEl.forEach((c, i) => { c.hidden = Math.floor(i / per) !== page; });
+        if (animate && !still) { grid.classList.remove('fade-in'); void grid.offsetWidth; grid.classList.add('fade-in'); }
+        [...dots.children].forEach((d, i) => { d.classList.toggle('on', i === page); d.setAttribute('aria-current', i === page ? 'true' : 'false'); });
+      }
+      function next() {
+        if (paused || document.hidden || !$('about').classList.contains('active')) return;
+        if (still) return;
+        grid.classList.add('fade-out');
+        setTimeout(() => { grid.classList.remove('fade-out'); showPage(page + 1, true); }, 450);
+      }
+      function layoutHl() {
+        const w = grid.clientWidth; if (!w) return; // About is hidden; lay out when it shows
+        const n = w >= 900 ? 3 : w >= 560 ? 2 : 1;
+        if (n !== per || !dots.children.length) {
+          per = n; grid.style.setProperty('--per', per);
+          dots.innerHTML = Array.from({ length: pages() }, (_, i) => `<button type="button" aria-label="Highlights ${i * per + 1}–${Math.min(cardsEl.length, (i + 1) * per)}"></button>`).join('');
+          dots.hidden = pages() < 2;
+          showPage(Math.min(page, pages() - 1), false);
+        }
+      }
+      dots.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; showPage([...dots.children].indexOf(b), true); restart(); });
+      const restart = () => { clearInterval(timer); timer = setInterval(next, 7000); };
+      grid.addEventListener('mouseenter', () => { paused = true; });
+      grid.addEventListener('mouseleave', () => { paused = false; });
+      grid.addEventListener('focusin', () => { paused = true; });
+      grid.addEventListener('focusout', () => { paused = false; });
+      new ResizeObserver(layoutHl).observe(grid);
+      layoutHl(); restart();
       // Click a figure to see it large; Esc, the ✕ or a click outside closes it
       const box = document.createElement('dialog');
       box.className = 'lightbox';
@@ -215,7 +253,7 @@
       chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
     };
     const mIcon = k => `<span class="m-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${MI[k]}</svg></span>`;
-    const card = ({ icon, val, label, detail, href, ext, extra = '', id = '' }) => `<a class="metric" ${id ? `id="${id}"` : ''} href="${esc(href || '#')}"${ext ? ' target="_blank" rel="noopener"' : ''}>
+    const card = ({ icon, val, label, detail, href, ext, extra = '', id = '', title = '' }) => `<a class="metric" ${id ? `id="${id}"` : ''}${title ? ` title="${esc(title)}"` : ''} href="${esc(href || '#')}"${ext ? ' target="_blank" rel="noopener"' : ''}>
       ${mIcon(icon)}<span class="m-body"><b class="m-val">${val}</b><span class="m-label">${esc(label)}</span>${detail ? `<span class="m-detail">${detail}</span>` : ''}</span>${extra}</a>`;
     // Papers per year as tiny bars (oldest → newest)
     const years = [...new Set(pubs.map(p => p.year))].sort();
@@ -231,12 +269,12 @@
     const maxC = Math.max(1, ...sy.map(([, n]) => n));
     const citeSpark = sy.length > 1 ? `<span class="m-spark" aria-label="Citations per year: ${sy.map(([y, n]) => `${y} ${n}`).join(', ')}">${sy.map(([y, n]) => `<span title="${y}: ${n} citation${n === 1 ? '' : 's'}"><i style="height:${Math.round(10 + 90 * n / maxC)}%"></i><small>’${String(y).slice(2)}</small></span>`).join('')}</span>` : '';
     const cards = [
-      card({ icon: 'doc', val: fmtN(pubs.length), label: 'Publications', detail: `${nJ} journal · ${nC} conference`, href: '#publications', extra: spark }),
+      card({ icon: 'doc', val: fmtN(pubs.length), label: 'Publications', detail: `${nJ} journal · ${nC} conf.`, href: '#publications', extra: spark }),
       hasScholar
-        ? card({ icon: 'quote', val: fmtN(num(sc.citations)), label: 'Citations · Google Scholar', detail: [num(sc.hIndex) != null && `h-index ${sc.hIndex}`, num(sc.i10) != null && `i10-index ${sc.i10}`].filter(Boolean).join(' · '), href: L.scholar || '#publications', ext: !!L.scholar, extra: citeSpark })
+        ? card({ icon: 'quote', val: fmtN(num(sc.citations)), label: 'Scholar citations', detail: [num(sc.hIndex) != null && `h-index ${sc.hIndex}`, num(sc.i10) != null && `i10 ${sc.i10}`].filter(Boolean).join(' · '), href: L.scholar || '#publications', ext: !!L.scholar, extra: citeSpark })
         : card({ icon: 'quote', val: '…', label: 'Citations', detail: 'Counting…', href: '#publications', id: 'mCites' }),
       card({ icon: 'star', val: fmtN(nFirst), label: 'First-author papers', detail: `${Math.round(100 * nFirst / Math.max(1, pubs.length))}% of all papers`, href: '#publications' }),
-      rv.totalReviews && card({ icon: 'check', val: fmtN(rv.totalReviews), label: 'Peer reviews', detail: `${(rv.journals || []).length} journals · ${Object.entries(byPub).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${v} ${k.replace(' Nature', '')}`).join(', ')}`, href: '#reviewing' }),
+      rv.totalReviews && card({ icon: 'check', val: fmtN(rv.totalReviews), label: 'Peer reviews', detail: `${(rv.journals || []).length} journals · ${Object.keys(byPub).length} publishers`, title: Object.entries(byPub).map(([k, v]) => `${v} ${k}`).join(', '), href: '#reviewing' }),
       num(sp.hIndex) != null && card({ icon: 'chart', val: fmtN(num(sp.hIndex)), label: 'h-index · Scopus', detail: [num(sp.citations) != null && `${fmtN(num(sp.citations))} citations`, num(sp.documents) != null && `${sp.documents} documents`].filter(Boolean).join(' · '), href: L.scopus, ext: true }),
     ].filter(Boolean);
     $('metrics').innerHTML = cards.join(''); $('metrics').hidden = !cards.length;

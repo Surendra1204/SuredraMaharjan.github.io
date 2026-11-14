@@ -274,3 +274,69 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
 .lb-x { position: absolute; top: -14px; right: -14px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: #fff; color: #142235; font-size: 16px; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, .35); }
 /* without a description, the paper link sits at the bottom of the card so cards line up */
 .hl-card .hl-src { margin-top: auto; padding-top: 4px; }
+
+/* highlights: a few at a time, fading to the next set; compact so About fits on one screen */
+.hl-grid { grid-template-columns: repeat(var(--per, 3), minmax(0, 1fr)); transition: opacity .45s ease; }
+.hl-grid.fade-out { opacity: 0; }
+.hl-grid.fade-in .hl-card:not([hidden]) { animation: hlIn .55s ease both; }
+.hl-grid.fade-in .hl-card:not([hidden]):nth-child(3n+2) { animation-delay: .08s; }
+.hl-grid.fade-in .hl-card:not([hidden]):nth-child(3n) { animation-delay: .16s; }
+@keyframes hlIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.hl-card { gap: 6px; padding: 12px 14px 14px; }
+.hl-zoom img { aspect-ratio: auto; height: clamp(120px, 21vh, 210px); }
+.hl-fig figcaption { font-size: 11.5px; margin-top: 4px; }
+.hl-stat b { font-size: 26px; }
+.hl-card h4 { font-size: 15.5px; }
+.hl-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+.hl-dots button { width: 9px; height: 9px; padding: 0; border-radius: 50%; border: 0; background: var(--line); cursor: pointer; transition: background .2s, width .2s; }
+.hl-dots button.on { width: 26px; border-radius: 6px; background: var(--accent-2); }
+.hl-dots button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .hl-grid { transition: none; } .hl-grid.fade-in .hl-card:not([hidden]) { animation: none; } }
+
+/* compact so the About page fits one screen on a laptop */
+.metrics { gap: 12px; margin-bottom: 22px; }
+.metric { padding: 12px 14px; align-items: center; }
+.m-val { font-size: 24px; }
+.m-label { font-size: 13.5px; margin-top: 1px; }
+.m-detail { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m-spark { height: 40px; }
+.highlights { margin-top: 18px; }
+.hl-head { margin-bottom: 10px; font-size: 19px; }
+.hl-zoom img { height: clamp(100px, 15vh, 170px); }
+.hl-card { gap: 5px; }
+.hl-stat b { font-size: 24px; }
+.hl-stat span { font-size: 12.5px; }
+.hl-dots { margin-top: 10px; }
+@media (min-width: 901px) {
+  .avatar { width: 128px; height: 128px; }
+  .profile { padding: 20px 18px 18px; }
+  .name { font-size: 24px; margin-top: 12px; }
+  .focus { margin-top: 6px; font-size: 14px; }
+  .affils { margin-top: 10px; padding-top: 10px; font-size: 14px; }
+  .p-loc { margin-top: 6px; font-size: 13.5px; }
+  .links { margin-top: 12px; gap: 6px; }
+  .lbtn { padding: 6px 10px; font-size: 13px; }
+  .p-topics { margin-top: 12px; padding-top: 10px; }
+  .p-topics .tags { gap: 5px; }
+  .p-topics .tags li { font-size: 12.5px; padding: 3px 9px; }
+  .layout { padding-top: 22px; }
+  #about h2 { margin-bottom: 8px; }
+  .prose p { margin-bottom: 8px; }
+}
+.m-detail { white-space: normal; overflow: visible; }
+@media (min-width: 901px) {
+  .layout { padding-bottom: 20px; }
+  .paged main .block.active { padding-bottom: 6px; margin-bottom: 10px; }
+  .footer { padding-top: 0; font-size: 13px; }
+}
+/* one-line details: smaller icon and slimmer bars leave room for the text */
+@media (min-width: 901px) {
+  .metric { gap: 10px; padding: 12px; }
+  .m-icon { width: 30px; height: 30px; border-radius: 9px; }
+  .m-icon svg { width: 16px; height: 16px; }
+  .m-detail { white-space: nowrap; font-size: 12px; }
+  .m-spark { gap: 3px; height: 38px; }
+  .m-spark > span { width: 11px; }
+  .m-spark i { width: 8px; }
+}
+.hl-zoom img { height: clamp(96px, 12.5vh, 160px); }
