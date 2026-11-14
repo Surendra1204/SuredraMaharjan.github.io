@@ -348,6 +348,7 @@
       navLinks.forEach(a => { const on = a.getAttribute('href') === '#' + target.id; a.classList.toggle('on', on); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
       document.title = (target.id === 'about' ? '' : target.querySelector('h2').textContent + ' · ') + 'Surendra Maharjan';
       window.scrollTo({ top: 0, behavior: 'instant' });
+      document.querySelector('.content').scrollTop = 0; // each section opens at its top
     }
     // A section with nothing in it is left out of the menu
     for (const id of ['reviewing', 'education', 'experience']) if ($(id).hidden) { $(id).dataset.empty = '1'; $(id).hidden = false; }

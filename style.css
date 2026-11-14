@@ -340,3 +340,13 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
   .m-spark i { width: 8px; }
 }
 .hl-zoom img { height: clamp(96px, 12.5vh, 160px); }
+
+/* Fixed frame on computers: the top menu and profile card stay put, only the section content scrolls.
+   (Phones and narrow windows keep normal page scrolling.) */
+@media (min-width: 901px) {
+  html, body { height: 100%; overflow: hidden; }
+  .topbar { position: relative; }
+  .layout { height: calc(100vh - 61px); padding-top: 22px; padding-bottom: 0; align-items: start; }
+  .profile { position: static; max-height: calc(100vh - 61px - 40px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+  .content { height: 100%; overflow-y: auto; overscroll-behavior: contain; padding: 0 10px 16px 2px; margin-right: -10px; scrollbar-gutter: stable; scrollbar-width: thin; }
+}
