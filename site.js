@@ -111,7 +111,7 @@
           ${h.region ? `<span class="hl-region">${esc(h.region)}</span>` : ''}
           ${h.stat ? `<div class="hl-stat"><b>${esc(h.stat)}</b><span>${esc(h.statLabel || '')}</span></div>` : ''}
           <h4>${esc(h.title)}</h4>
-          <p>${esc(h.text || '')}</p>
+          ${h.text ? `<p>${esc(h.text)}</p>` : ''}
           ${url ? `<a class="hl-src" href="${esc(url)}" target="_blank" rel="noopener"><i>${esc(p ? p.venue : 'Read the paper')}</i>${p ? `, ${p.year}` : ''} ↗</a>` : ''}
         </article>`;
       }).join('');

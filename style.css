@@ -272,3 +272,5 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
 .lightbox img { display: block; max-width: 100%; max-height: 84vh; margin: 0 auto; border-radius: 10px; background: #fff; }
 .lb-cap { margin: 10px 0 0; text-align: center; color: #e6edf6; font-size: 14px; }
 .lb-x { position: absolute; top: -14px; right: -14px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: #fff; color: #142235; font-size: 16px; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, .35); }
+/* without a description, the paper link sits at the bottom of the card so cards line up */
+.hl-card .hl-src { margin-top: auto; padding-top: 4px; }
