@@ -103,16 +103,19 @@
         const url = h.doi ? 'https://doi.org/' + h.doi : '';
         // Figure credit: "Figure: Maharjan et al. (2025), Ecological Informatics"
         const lead = p && p.authors && p.authors[0] ? p.authors[0].trim().split(/\s+/).pop() : '';
-        const credit = p ? `Figure: ${esc(lead)}${p.authors.length > 1 ? ' et al.' : ''} (${p.year}), <i>${esc(p.venue)}</i>` : '';
+        const cite = p ? `${esc(lead)}${p.authors.length > 1 ? ' et al.' : ''} (${p.year}), <i>${esc(p.venue)}</i>` : '';
+        const credit = cite ? 'Figure: ' + cite : '';
+        // The figure leads: big picture with the region tag on its corner, then one compact line each
+        // for the number, the title, and the source (which doubles as the figure credit)
         return `<article class="hl-card${h.image ? ' has-img' : ''}">
           ${h.image ? `<figure class="hl-fig"><button type="button" class="hl-zoom" data-img="${esc(h.image)}" data-alt="${esc(h.imageAlt || h.title)}" data-credit="${esc(credit)}" aria-label="Enlarge figure: ${esc(h.imageAlt || h.title)}">
             <img src="${esc(h.image)}" alt="${esc(h.imageAlt || h.title)}" loading="lazy" decoding="async"></button>
-            ${credit ? `<figcaption>${credit}</figcaption>` : ''}</figure>` : ''}
-          ${h.region ? `<span class="hl-region">${esc(h.region)}</span>` : ''}
+            ${h.region ? `<span class="hl-region">${esc(h.region)}</span>` : ''}</figure>`
+            : (h.region ? `<span class="hl-region">${esc(h.region)}</span>` : '')}
           ${h.stat ? `<div class="hl-stat"><b>${esc(h.stat)}</b><span>${esc(h.statLabel || '')}</span></div>` : ''}
           <h4>${esc(h.title)}</h4>
           ${h.text ? `<p>${esc(h.text)}</p>` : ''}
-          ${url ? `<a class="hl-src" href="${esc(url)}" target="_blank" rel="noopener"><i>${esc(p ? p.venue : 'Read the paper')}</i>${p ? `, ${p.year}` : ''} ↗</a>` : ''}
+          ${url ? `<a class="hl-src" href="${esc(url)}" target="_blank" rel="noopener" title="${h.image ? 'Figure and findings from ' : ''}${esc(p ? `${p.title}` : 'the paper')}">${cite || 'Read the paper'} ↗</a>` : ''}
         </article>`;
       }).join('');
       $('highlights').hidden = false;

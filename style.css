@@ -350,3 +350,21 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
   .profile { position: static; max-height: calc(100vh - 61px - 40px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
   .content { height: 100%; overflow-y: auto; overscroll-behavior: contain; padding: 0 10px 16px 2px; margin-right: -10px; scrollbar-gutter: stable; scrollbar-width: thin; }
 }
+
+/* highlights: figure first and big, text kept to three short lines */
+.hl-card { gap: 6px; padding: 10px 10px 12px; }
+.hl-card.has-img { padding-top: 10px; }
+.hl-fig { position: relative; margin: 0 0 2px; }
+.hl-zoom img { height: clamp(170px, 30vh, 360px); }
+.hl-fig .hl-region { position: absolute; left: 8px; top: 8px; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(4px); box-shadow: 0 1px 3px rgba(20, 34, 53, .12); }
+.hl-card > .hl-stat, .hl-card > h4, .hl-card > .hl-src, .hl-card > p { padding: 0 4px; }
+.hl-stat { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.hl-stat b { font-size: 21px; }
+.hl-stat span { font-size: 12.5px; line-height: 1.3; }
+.hl-card h4 { font-size: 15px; line-height: 1.3; margin: 0; }
+.hl-src { font-size: 12.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hl-zoom img { height: clamp(160px, 26vh, 340px); }
+.hl-card { gap: 4px; }
+.hl-head { margin-bottom: 8px; }
+.hl-dots { margin-top: 8px; }
+.highlights { margin-top: 14px; }
