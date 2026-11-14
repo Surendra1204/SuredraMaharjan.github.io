@@ -101,7 +101,13 @@
       $('hlGrid').innerHTML = HL.map(h => {
         const p = pubByDoi.get(String(h.doi || '').toLowerCase());
         const url = h.doi ? 'https://doi.org/' + h.doi : '';
-        return `<article class="hl-card">
+        // Figure credit: "Figure: Maharjan et al. (2025), Ecological Informatics"
+        const lead = p && p.authors && p.authors[0] ? p.authors[0].trim().split(/\s+/).pop() : '';
+        const credit = p ? `Figure: ${esc(lead)}${p.authors.length > 1 ? ' et al.' : ''} (${p.year}), <i>${esc(p.venue)}</i>` : '';
+        return `<article class="hl-card${h.image ? ' has-img' : ''}">
+          ${h.image ? `<figure class="hl-fig"><button type="button" class="hl-zoom" data-img="${esc(h.image)}" data-alt="${esc(h.imageAlt || h.title)}" data-credit="${esc(credit)}" aria-label="Enlarge figure: ${esc(h.imageAlt || h.title)}">
+            <img src="${esc(h.image)}" alt="${esc(h.imageAlt || h.title)}" loading="lazy" decoding="async"></button>
+            ${credit ? `<figcaption>${credit}</figcaption>` : ''}</figure>` : ''}
           ${h.region ? `<span class="hl-region">${esc(h.region)}</span>` : ''}
           ${h.stat ? `<div class="hl-stat"><b>${esc(h.stat)}</b><span>${esc(h.statLabel || '')}</span></div>` : ''}
           <h4>${esc(h.title)}</h4>
@@ -110,6 +116,18 @@
         </article>`;
       }).join('');
       $('highlights').hidden = false;
+      // Click a figure to see it large; Esc, the ✕ or a click outside closes it
+      const box = document.createElement('dialog');
+      box.className = 'lightbox';
+      box.innerHTML = '<button type="button" class="lb-x" aria-label="Close">✕</button><img alt=""><p class="lb-cap"></p>';
+      document.body.appendChild(box);
+      $('hlGrid').addEventListener('click', e => {
+        const b = e.target.closest('.hl-zoom'); if (!b) return;
+        const im = box.querySelector('img'); im.src = b.dataset.img; im.alt = b.dataset.alt;
+        box.querySelector('.lb-cap').innerHTML = `${esc(b.dataset.alt)}${b.dataset.credit ? ` · ${b.dataset.credit}` : ''}`;
+        box.showModal();
+      });
+      box.addEventListener('click', e => { if (e.target === box || e.target.closest('.lb-x')) box.close(); });
     }
 
     // ---------- publications ----------

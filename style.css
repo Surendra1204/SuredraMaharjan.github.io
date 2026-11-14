@@ -256,3 +256,19 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
 .hl-src { margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--accent); }
 /* The profile card stays in view while scrolling only when the whole card fits on screen */
 @media (min-width: 901px) and (min-height: 1000px) { .profile { position: sticky; } }
+
+/* highlight figures: a figure from the paper on top of each card, click to enlarge */
+.hl-card.has-img { padding-top: 12px; }
+.hl-fig { margin: 0 0 4px; }
+.hl-zoom { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff; cursor: zoom-in; }
+.hl-zoom img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: contain; background: #fff; transition: transform .25s ease; }
+.hl-zoom:hover img { transform: scale(1.03); }
+.hl-zoom:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.hl-fig figcaption { margin-top: 5px; font-size: 12px; color: var(--muted); line-height: 1.4; }
+@media (prefers-reduced-motion: reduce) { .hl-zoom img { transition: none; } .hl-zoom:hover img { transform: none; } }
+
+.lightbox { border: 0; padding: 0; background: transparent; max-width: min(1200px, 94vw); max-height: 94vh; overflow: visible; }
+.lightbox::backdrop { background: rgba(8, 14, 24, .78); }
+.lightbox img { display: block; max-width: 100%; max-height: 84vh; margin: 0 auto; border-radius: 10px; background: #fff; }
+.lb-cap { margin: 10px 0 0; text-align: center; color: #e6edf6; font-size: 14px; }
+.lb-x { position: absolute; top: -14px; right: -14px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: #fff; color: #142235; font-size: 16px; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, .35); }
