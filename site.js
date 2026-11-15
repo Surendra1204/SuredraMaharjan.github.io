@@ -343,7 +343,7 @@
       </div>${withMap ? smallMap(name(e), e.place) : ''}</li>`).join('');
     const edu = s.education || [], exp = s.experience || [];
     $('eduList').innerHTML = tl(edu, e => [e.degree, e.field].filter(Boolean).join(', '), e => e.institution || '', e => e.institution, true);
-    $('expList').innerHTML = tl(exp, e => e.role, e => e.org || '', e => String(e.org || '').split(',')[0], false);
+    $('expList').innerHTML = tl(exp, e => e.role, e => e.org || '', e => String(e.org || '').split(',')[0], true);
     if (!edu.length) { $('education').hidden = true; document.querySelector('.nav a[href="#education"]').hidden = true; }
     if (!exp.length) { $('experience').hidden = true; document.querySelector('.nav a[href="#experience"]').hidden = true; }
 
