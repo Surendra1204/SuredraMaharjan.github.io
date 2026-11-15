@@ -328,14 +328,17 @@
     }
 
     // ---------- education & experience ----------
-    const tl = (items, title, org) => items.map(e => `<li>
+    // Location under each entry, linked to Google Maps (searches the place name with the institution)
+    const PIN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+    const where = (name, place) => place ? `<a class="tl-loc" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([name, place].filter(Boolean).join(', '))}" target="_blank" rel="noopener" title="Show on Google Maps">${PIN}${esc(place)}</a>` : '';
+    const tl = (items, title, org, name) => items.map(e => `<li>
       <div class="tl-head"><div class="tl-title">${esc(title(e))}</div><div class="tl-when">${esc(e.years || '')}</div></div>
-      <div class="tl-org">${esc(org(e))}</div>${e.note ? `<div class="tl-note">${esc(e.note)}</div>` : ''}
+      <div class="tl-org">${esc(org(e))}</div>${where(name(e), e.place)}${e.note ? `<div class="tl-note">${esc(e.note)}</div>` : ''}
       ${(e.points || []).length ? `<ul class="tl-points">${e.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
       ${e.projects ? `<div class="tl-projects"><b>Key projects:</b> ${esc(e.projects)}</div>` : ''}</li>`).join('');
     const edu = s.education || [], exp = s.experience || [];
-    $('eduList').innerHTML = tl(edu, e => [e.degree, e.field].filter(Boolean).join(', '), e => [e.institution, e.place].filter(Boolean).join(' · '));
-    $('expList').innerHTML = tl(exp, e => e.role, e => [e.org, e.place].filter(Boolean).join(' · '));
+    $('eduList').innerHTML = tl(edu, e => [e.degree, e.field].filter(Boolean).join(', '), e => e.institution || '', e => e.institution);
+    $('expList').innerHTML = tl(exp, e => e.role, e => e.org || '', e => String(e.org || '').split(',')[0]);
     if (!edu.length) { $('education').hidden = true; document.querySelector('.nav a[href="#education"]').hidden = true; }
     if (!exp.length) { $('experience').hidden = true; document.querySelector('.nav a[href="#experience"]').hidden = true; }
 

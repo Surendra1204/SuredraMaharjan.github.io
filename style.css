@@ -368,3 +368,7 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); text-decoratio
 .hl-head { margin-bottom: 8px; }
 .hl-dots { margin-top: 8px; }
 .highlights { margin-top: 14px; }
+/* location under each school and job, opens Google Maps */
+.tl-loc { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; font-size: 14px; color: var(--muted); }
+.tl-loc svg { width: 14px; height: 14px; flex: none; color: var(--accent-2); }
+.tl-loc:hover { color: var(--accent); }
